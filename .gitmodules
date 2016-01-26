@@ -1,0 +1,3 @@
+[submodule "libdgmpp"]
+	path = libdgmpp
+	url = https://github.com/mrdepth/libdgmpp.git
