@@ -4,7 +4,7 @@ mkdir -p java/dgmpp
 mkdir -p java/jni
 mkdir -p java/jni/ThirdParty
 echo 'Running swig...'
-swig -c++ -java -package dgmpp -outdir java/dgmpp -o java/jni/dgmpp_wrap.cxx swig/dgmpp.i
+swig -c++ -java -package dgmpp -outdir java/dgmpp -o java/jni/dgmpp_wrap.cxx libdgmpp/swig/dgmpp.i
 cp libdgmpp/dgmpp/*.cpp java/jni/
 cp libdgmpp/dgmpp/*.h java/jni/
 cp libdgmpp/dgmpp/ThirdParty/*.* java/jni/ThirdParty
