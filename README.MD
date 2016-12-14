@@ -13,7 +13,10 @@ Make the database available to the app by placing it in the files folder.
 ## How to use
 The following command to build:
 
-	./build.sh
+	docker build -t libdgmpp .
+	docker run -v //d/dev/libdgmpp-android/java://ndk/java libdgmpp
+
+Replace the first path with your local path
 
 
 The following folder contains the native libraries:

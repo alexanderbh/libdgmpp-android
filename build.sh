@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 rm -r java
 mkdir -p java/dgmpp
 mkdir -p java/jni
