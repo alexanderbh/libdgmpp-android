@@ -44,5 +44,6 @@ Storage.cpp  \
 Structure.cpp \
 Type.cpp \
 WarfareBuff.cpp \
+dgmpp_wrap.cxx \
 
 include $(BUILD_SHARED_LIBRARY)
