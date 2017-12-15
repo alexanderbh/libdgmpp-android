@@ -1,4 +1,4 @@
-FROM bitriseio/android-ndk
+FROM bitriseio/android-ndk:latest
 
 RUN apt-get update
 RUN apt-get install -y swig

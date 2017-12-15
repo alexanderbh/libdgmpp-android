@@ -1,15 +1,23 @@
 #! /bin/bash
-rm -r java
+rm -fr java
 mkdir -p java/dgmpp
 mkdir -p java/jni
-mkdir -p java/jni/ThirdParty
-echo 'Running swig...'
-swig -c++ -java -package dgmpp -outdir java/dgmpp -o java/jni/dgmpp_wrap.cxx libdgmpp/swig/dgmpp.i
-cp libdgmpp/dgmpp/*.cpp java/jni/
-cp libdgmpp/dgmpp/*.h java/jni/
+mkdir -p java/jni/SDE
 
-cp libdgmpp/dgmpp/ThirdParty/*.* java/jni/ThirdParty
-cp Android.mk java/jni/Android.mk
-cp Application.mk java/jni/Application.mk
-echo 'Running ndk-build'
-ndk-build -C java/jni
+echo 'Running swig 2...'
+swig -c++ -java -package dgmpp -outdir java/dgmpp -Ilibdgmpp/src -Ilibdgmpp/src/SDE -o java/jni/dgmpp_wrap.cxx libdgmpp/swig2/dgmpp.i
+
+#echo 'Running swig...'
+#swig -c++ -java -package dgmpp -outdir java/dgmpp -o java/jni/dgmpp_wrap.cxx libdgmpp/swig/dgmpp.i
+
+
+#cp libdgmpp/src/*.cpp java/jni/
+#cp libdgmpp/src/*.hpp java/jni/
+#
+#cp libdgmpp/src/SDE/*.* java/jni/SDE
+#cp Android.mk java/jni/Android.mk
+#cp Application.mk java/jni/Application.mk
+#ndk-build --version
+#echo $ANDROID_NDK_VERSION
+#echo 'Running ndk-build'
+#ndk-build -C java/jni
