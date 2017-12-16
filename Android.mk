@@ -14,6 +14,7 @@ LOCAL_LDLIBS += -latomic
 LOCAL_C_INCLUDES := SDE
 
 LOCAL_SRC_FILES := \
+dgmpp_wrap.cxx \
 Area.cpp \
 Attribute.cpp \
 Booster.cpp \
@@ -44,6 +45,5 @@ Storage.cpp  \
 Structure.cpp \
 Type.cpp \
 WarfareBuff.cpp \
-dgmpp_wrap.cxx \
 
 include $(BUILD_SHARED_LIBRARY)
