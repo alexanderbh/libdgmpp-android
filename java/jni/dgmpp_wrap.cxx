@@ -284,9 +284,9 @@ SWIGINTERN dgmpp::TypeID dgmpp_Type_typeID(dgmpp::Type const *self){ return self
 SWIGINTERN dgmpp::GroupID dgmpp_Type_groupID(dgmpp::Type const *self){ return self->metaInfo().groupID; }
 SWIGINTERN dgmpp::CategoryID dgmpp_Type_categoryID(dgmpp::Type const *self){ return self->metaInfo().categoryID; }
 SWIGINTERN dgmpp::Attribute *dgmpp_Type_attribute(dgmpp::Type *self,dgmpp::AttributeID attributeID){
-				return ((*self)[attributeID]).get();
+				return ((*self)[attributeID]);
 			}
-SWIGINTERN std::vector< dgmpp::Type * > dgmpp_Type_affectors(dgmpp::Type const *self){
+SWIGINTERN std::vector< dgmpp::Type * > dgmpp_Type_affectors(dgmpp::Type *self){
 				auto c = self->affectors();
 				return {c.begin(), c.end()};
 			}
@@ -1675,7 +1675,7 @@ SWIGEXPORT jlong JNICALL Java_com_dgmpp_dgmppJNI_Type_1affectors(JNIEnv *jenv, j
   (void)jcls;
   (void)jarg1_;
   arg1 = *(dgmpp::Type **)&jarg1; 
-  result = dgmpp_Type_affectors((dgmpp::Type const *)arg1);
+  result = dgmpp_Type_affectors(arg1);
   *(std::vector< dgmpp::Type * > **)&jresult = new std::vector< dgmpp::Type * >((const std::vector< dgmpp::Type * > &)result); 
   return jresult;
 }
@@ -1707,28 +1707,6 @@ SWIGEXPORT jlong JNICALL Java_com_dgmpp_dgmppJNI_Type_1parent(JNIEnv *jenv, jcla
   arg1 = *(dgmpp::Type **)&jarg1; 
   result = (dgmpp::Type *)(arg1)->parent();
   *(dgmpp::Type **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jboolean JNICALL Java_com_dgmpp_dgmppJNI_Type_1isDescendant(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jlong jarg2, jobject jarg2_) {
-  jboolean jresult = 0 ;
-  dgmpp::Type *arg1 = (dgmpp::Type *) 0 ;
-  dgmpp::Type *arg2 = 0 ;
-  bool result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  (void)jarg2_;
-  arg1 = *(dgmpp::Type **)&jarg1; 
-  arg2 = *(dgmpp::Type **)&jarg2;
-  if (!arg2) {
-    SWIG_JavaThrowException(jenv, SWIG_JavaNullPointerException, "dgmpp::Type & reference is null");
-    return 0;
-  } 
-  result = (bool)((dgmpp::Type const *)arg1)->isDescendant(*arg2);
-  jresult = (jboolean)result; 
   return jresult;
 }
 
@@ -1999,51 +1977,6 @@ SWIGEXPORT jint JNICALL Java_com_dgmpp_dgmppJNI_Module_1chargeSize(JNIEnv *jenv,
 }
 
 
-SWIGEXPORT jboolean JNICALL Java_com_dgmpp_dgmppJNI_Module_1canBeOnline(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jboolean jresult = 0 ;
-  dgmpp::Module *arg1 = (dgmpp::Module *) 0 ;
-  bool result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(dgmpp::Module **)&jarg1; 
-  result = (bool)((dgmpp::Module const *)arg1)->canBeOnline();
-  jresult = (jboolean)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jboolean JNICALL Java_com_dgmpp_dgmppJNI_Module_1canBeActive(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jboolean jresult = 0 ;
-  dgmpp::Module *arg1 = (dgmpp::Module *) 0 ;
-  bool result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(dgmpp::Module **)&jarg1; 
-  result = (bool)((dgmpp::Module const *)arg1)->canBeActive();
-  jresult = (jboolean)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jboolean JNICALL Java_com_dgmpp_dgmppJNI_Module_1canBeOverloaded(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jboolean jresult = 0 ;
-  dgmpp::Module *arg1 = (dgmpp::Module *) 0 ;
-  bool result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(dgmpp::Module **)&jarg1; 
-  result = (bool)((dgmpp::Module const *)arg1)->canBeOverloaded();
-  jresult = (jboolean)result; 
-  return jresult;
-}
-
-
 SWIGEXPORT jboolean JNICALL Java_com_dgmpp_dgmppJNI_Module_1requireTarget(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jboolean jresult = 0 ;
   dgmpp::Module *arg1 = (dgmpp::Module *) 0 ;
@@ -2071,34 +2004,6 @@ SWIGEXPORT jboolean JNICALL Java_com_dgmpp_dgmppJNI_Module_1fail(JNIEnv *jenv, j
   result = (bool)((dgmpp::Module const *)arg1)->fail();
   jresult = (jboolean)result; 
   return jresult;
-}
-
-
-SWIGEXPORT jboolean JNICALL Java_com_dgmpp_dgmppJNI_Module_1factorReload_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jboolean jresult = 0 ;
-  dgmpp::Module *arg1 = (dgmpp::Module *) 0 ;
-  bool result;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(dgmpp::Module **)&jarg1; 
-  result = (bool)((dgmpp::Module const *)arg1)->factorReload();
-  jresult = (jboolean)result; 
-  return jresult;
-}
-
-
-SWIGEXPORT void JNICALL Java_com_dgmpp_dgmppJNI_Module_1factorReload_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2) {
-  dgmpp::Module *arg1 = (dgmpp::Module *) 0 ;
-  bool arg2 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(dgmpp::Module **)&jarg1; 
-  arg2 = jarg2 ? true : false; 
-  (arg1)->factorReload(arg2);
 }
 
 
@@ -2738,6 +2643,49 @@ SWIGEXPORT jboolean JNICALL Java_com_dgmpp_dgmppJNI_Drone_1active_1_1SWIG_11(JNI
   (void)jarg1_;
   arg1 = *(dgmpp::Drone **)&jarg1; 
   result = (bool)((dgmpp::Drone const *)arg1)->active();
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_com_dgmpp_dgmppJNI_Drone_1hasKamikazeAbility(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jboolean jresult = 0 ;
+  dgmpp::Drone *arg1 = (dgmpp::Drone *) 0 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(dgmpp::Drone **)&jarg1; 
+  result = (bool)((dgmpp::Drone const *)arg1)->hasKamikazeAbility();
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_com_dgmpp_dgmppJNI_Drone_1kamikaze_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2) {
+  dgmpp::Drone *arg1 = (dgmpp::Drone *) 0 ;
+  bool arg2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(dgmpp::Drone **)&jarg1; 
+  arg2 = jarg2 ? true : false; 
+  (arg1)->kamikaze(arg2);
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_com_dgmpp_dgmppJNI_Drone_1kamikaze_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jboolean jresult = 0 ;
+  dgmpp::Drone *arg1 = (dgmpp::Drone *) 0 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(dgmpp::Drone **)&jarg1; 
+  result = (bool)((dgmpp::Drone const *)arg1)->kamikaze();
   jresult = (jboolean)result; 
   return jresult;
 }
@@ -3658,12 +3606,12 @@ SWIGEXPORT jlong JNICALL Java_com_dgmpp_dgmppJNI_Ship_1damagePattern_1_1SWIG_11(
 }
 
 
-SWIGEXPORT jlong JNICALL Java_com_dgmpp_dgmppJNI_Ship_1addModule_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jboolean jarg3, jint jarg4) {
+SWIGEXPORT jlong JNICALL Java_com_dgmpp_dgmppJNI_Ship_1addModule_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3, jboolean jarg4) {
   jlong jresult = 0 ;
   dgmpp::Ship *arg1 = (dgmpp::Ship *) 0 ;
   dgmpp::TypeID arg2 ;
-  bool arg3 ;
-  dgmpp::Module::Socket arg4 ;
+  dgmpp::Module::Socket arg3 ;
+  bool arg4 ;
   dgmpp::Module *result = 0 ;
   
   (void)jenv;
@@ -3671,19 +3619,19 @@ SWIGEXPORT jlong JNICALL Java_com_dgmpp_dgmppJNI_Ship_1addModule_1_1SWIG_10(JNIE
   (void)jarg1_;
   arg1 = *(dgmpp::Ship **)&jarg1; 
   arg2 = (dgmpp::TypeID)jarg2; 
-  arg3 = jarg3 ? true : false; 
-  arg4 = (dgmpp::Module::Socket)jarg4; 
+  arg3 = (dgmpp::Module::Socket)jarg3; 
+  arg4 = jarg4 ? true : false; 
   result = (dgmpp::Module *)(arg1)->addModule(arg2,arg3,arg4);
   *(dgmpp::Module **)&jresult = result; 
   return jresult;
 }
 
 
-SWIGEXPORT jlong JNICALL Java_com_dgmpp_dgmppJNI_Ship_1addModule_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jboolean jarg3) {
+SWIGEXPORT jlong JNICALL Java_com_dgmpp_dgmppJNI_Ship_1addModule_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2, jint jarg3) {
   jlong jresult = 0 ;
   dgmpp::Ship *arg1 = (dgmpp::Ship *) 0 ;
   dgmpp::TypeID arg2 ;
-  bool arg3 ;
+  dgmpp::Module::Socket arg3 ;
   dgmpp::Module *result = 0 ;
   
   (void)jenv;
@@ -3691,7 +3639,7 @@ SWIGEXPORT jlong JNICALL Java_com_dgmpp_dgmppJNI_Ship_1addModule_1_1SWIG_11(JNIE
   (void)jarg1_;
   arg1 = *(dgmpp::Ship **)&jarg1; 
   arg2 = (dgmpp::TypeID)jarg2; 
-  arg3 = jarg3 ? true : false; 
+  arg3 = (dgmpp::Module::Socket)jarg3; 
   result = (dgmpp::Module *)(arg1)->addModule(arg2,arg3);
   *(dgmpp::Module **)&jresult = result; 
   return jresult;
@@ -3858,38 +3806,6 @@ SWIGEXPORT jlong JNICALL Java_com_dgmpp_dgmppJNI_Ship_1drones(JNIEnv *jenv, jcla
   arg1 = *(dgmpp::Ship **)&jarg1; 
   result = ((dgmpp::Ship const *)arg1)->drones();
   *(std::vector< dgmpp::Drone * > **)&jresult = new std::vector< dgmpp::Drone * >((const std::vector< dgmpp::Drone * > &)result); 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_com_dgmpp_dgmppJNI_Ship_1area_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  dgmpp::Ship *arg1 = (dgmpp::Ship *) 0 ;
-  dgmpp::Area *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(dgmpp::Ship **)&jarg1; 
-  result = (dgmpp::Area *)((dgmpp::Ship const *)arg1)->area();
-  *(dgmpp::Area **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_com_dgmpp_dgmppJNI_Ship_1area_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jlong jresult = 0 ;
-  dgmpp::Ship *arg1 = (dgmpp::Ship *) 0 ;
-  dgmpp::TypeID arg2 ;
-  dgmpp::Area *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(dgmpp::Ship **)&jarg1; 
-  arg2 = (dgmpp::TypeID)jarg2; 
-  result = (dgmpp::Area *)(arg1)->area(arg2);
-  *(dgmpp::Area **)&jresult = result; 
   return jresult;
 }
 
@@ -4300,7 +4216,7 @@ SWIGEXPORT jdouble JNICALL Java_com_dgmpp_dgmppJNI_Ship_1cargoCapacity(JNIEnv *j
 }
 
 
-SWIGEXPORT jdouble JNICALL Java_com_dgmpp_dgmppJNI_Ship_1oreHoldCapacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+SWIGEXPORT jdouble JNICALL Java_com_dgmpp_dgmppJNI_Ship_1specialHoldCapacity(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
   jdouble jresult = 0 ;
   dgmpp::Ship *arg1 = (dgmpp::Ship *) 0 ;
   dgmpp::CubicMeter result;
@@ -4309,7 +4225,7 @@ SWIGEXPORT jdouble JNICALL Java_com_dgmpp_dgmppJNI_Ship_1oreHoldCapacity(JNIEnv 
   (void)jcls;
   (void)jarg1_;
   arg1 = *(dgmpp::Ship **)&jarg1; 
-  result = (dgmpp::CubicMeter)(arg1)->oreHoldCapacity();
+  result = (dgmpp::CubicMeter)(arg1)->specialHoldCapacity();
   jresult = (jdouble)result; 
   return jresult;
 }
@@ -4822,6 +4738,20 @@ SWIGEXPORT void JNICALL Java_com_dgmpp_dgmppJNI_delete_1Ship(JNIEnv *jenv, jclas
   (void)jcls;
   arg1 = *(dgmpp::Ship **)&jarg1; 
   delete arg1;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_com_dgmpp_dgmppJNI_new_1Structure(JNIEnv *jenv, jclass jcls, jint jarg1) {
+  jlong jresult = 0 ;
+  dgmpp::TypeID arg1 ;
+  dgmpp::Structure *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  arg1 = (dgmpp::TypeID)jarg1; 
+  result = (dgmpp::Structure *)new dgmpp::Structure(arg1);
+  *(dgmpp::Structure **)&jresult = result; 
+  return jresult;
 }
 
 
@@ -5665,38 +5595,6 @@ SWIGEXPORT jlong JNICALL Java_com_dgmpp_dgmppJNI_Character_1ship_1_1SWIG_11(JNIE
 }
 
 
-SWIGEXPORT jlong JNICALL Java_com_dgmpp_dgmppJNI_Character_1structure_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
-  jlong jresult = 0 ;
-  dgmpp::Character *arg1 = (dgmpp::Character *) 0 ;
-  dgmpp::Structure *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(dgmpp::Character **)&jarg1; 
-  result = (dgmpp::Structure *)(arg1)->structure();
-  *(dgmpp::Structure **)&jresult = result; 
-  return jresult;
-}
-
-
-SWIGEXPORT jlong JNICALL Java_com_dgmpp_dgmppJNI_Character_1structure_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
-  jlong jresult = 0 ;
-  dgmpp::Character *arg1 = (dgmpp::Character *) 0 ;
-  dgmpp::TypeID arg2 ;
-  dgmpp::Structure *result = 0 ;
-  
-  (void)jenv;
-  (void)jcls;
-  (void)jarg1_;
-  arg1 = *(dgmpp::Character **)&jarg1; 
-  arg2 = (dgmpp::TypeID)jarg2; 
-  result = (dgmpp::Structure *)(arg1)->structure(arg2);
-  *(dgmpp::Structure **)&jresult = result; 
-  return jresult;
-}
-
-
 SWIGEXPORT void JNICALL Java_com_dgmpp_dgmppJNI_Character_1setSkillLevels(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
   dgmpp::Character *arg1 = (dgmpp::Character *) 0 ;
   int arg2 ;
@@ -5966,6 +5864,66 @@ SWIGEXPORT jlong JNICALL Java_com_dgmpp_dgmppJNI_Gang_1pilots(JNIEnv *jenv, jcla
   arg1 = *(dgmpp::Gang **)&jarg1; 
   result = ((dgmpp::Gang const *)arg1)->pilots();
   *(std::vector< dgmpp::Character * > **)&jresult = new std::vector< dgmpp::Character * >((const std::vector< dgmpp::Character * > &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT jboolean JNICALL Java_com_dgmpp_dgmppJNI_Gang_1factorReload_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jboolean jresult = 0 ;
+  dgmpp::Gang *arg1 = (dgmpp::Gang *) 0 ;
+  bool result;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(dgmpp::Gang **)&jarg1; 
+  result = (bool)((dgmpp::Gang const *)arg1)->factorReload();
+  jresult = (jboolean)result; 
+  return jresult;
+}
+
+
+SWIGEXPORT void JNICALL Java_com_dgmpp_dgmppJNI_Gang_1factorReload_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jboolean jarg2) {
+  dgmpp::Gang *arg1 = (dgmpp::Gang *) 0 ;
+  bool arg2 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(dgmpp::Gang **)&jarg1; 
+  arg2 = jarg2 ? true : false; 
+  (arg1)->factorReload(arg2);
+}
+
+
+SWIGEXPORT jlong JNICALL Java_com_dgmpp_dgmppJNI_Gang_1area_1_1SWIG_10(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_) {
+  jlong jresult = 0 ;
+  dgmpp::Gang *arg1 = (dgmpp::Gang *) 0 ;
+  dgmpp::Area *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(dgmpp::Gang **)&jarg1; 
+  result = (dgmpp::Area *)((dgmpp::Gang const *)arg1)->area();
+  *(dgmpp::Area **)&jresult = result; 
+  return jresult;
+}
+
+
+SWIGEXPORT jlong JNICALL Java_com_dgmpp_dgmppJNI_Gang_1area_1_1SWIG_11(JNIEnv *jenv, jclass jcls, jlong jarg1, jobject jarg1_, jint jarg2) {
+  jlong jresult = 0 ;
+  dgmpp::Gang *arg1 = (dgmpp::Gang *) 0 ;
+  dgmpp::TypeID arg2 ;
+  dgmpp::Area *result = 0 ;
+  
+  (void)jenv;
+  (void)jcls;
+  (void)jarg1_;
+  arg1 = *(dgmpp::Gang **)&jarg1; 
+  arg2 = (dgmpp::TypeID)jarg2; 
+  result = (dgmpp::Area *)(arg1)->area(arg2);
+  *(dgmpp::Area **)&jresult = result; 
   return jresult;
 }
 

@@ -142,6 +142,45 @@ namespace dgmpp {
 			AttributeID::warfareBuff3ID,
 			AttributeID::warfareBuff4ID
 		};
+		
+		const auto specialHoldCapacityAttributes = {
+			AttributeID::specialOreHoldCapacity,
+			AttributeID::specialMineralHoldCapacity,
+			AttributeID::specialPlanetaryCommoditiesHoldCapacity
+		};
+
+		const auto droneCategories = {
+			CategoryID::drone,
+			CategoryID::fighter
+		};
+
+		const auto shipCategories = {
+			CategoryID::ship,
+			CategoryID::structure
+		};
+
+		const auto chargeCategories = {
+			CategoryID::charge
+		};
+
+		const auto moduleCategories = {
+			CategoryID::module,
+			CategoryID::subsystem,
+			CategoryID::structureModule,
+		};
+
+		const auto implantCategories = {
+			CategoryID::implant
+		};
+
+		const auto boosterCategories = {
+			CategoryID::implant
+		};
+
+		const auto areaCategories = {
+			CategoryID::celestial
+		};
+
 		/*const auto warfareBuffValueAttributes = {
 			AttributeID::warfareBuff1Value,
 			AttributeID::warfareBuff2Value,

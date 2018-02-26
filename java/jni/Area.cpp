@@ -6,18 +6,25 @@
 //
 
 #include "Area.hpp"
+#include "SDE.hpp"
 
 namespace dgmpp {
 	
-	void Area::setEnabled(bool enabled) {
-		if (isEnabled() == enabled)
-			return Type::setEnabled(enabled);
+	Area::Area (TypeID typeID) : Type(typeID) {
+		if (!std::any_of(SDE::areaCategories.begin(), SDE::areaCategories.end(), [categoryID = metaInfo().categoryID](const auto& i) { return categoryID == i; })) {
+			throw InvalidCategoryID(metaInfo().categoryID);
+		}
+	}
+	
+	void Area::setEnabled_(bool enabled) {
+		if (isEnabled_() == enabled)
+			return Type::setEnabled_(enabled);
 		else
-			Type::setEnabled(enabled);
+			Type::setEnabled_(enabled);
 		
 		if (enabled)
-			activateEffects(MetaInfo::Effect::Category::system);
+			activateEffects_(MetaInfo::Effect::Category::system);
 		else
-			deactivateEffects(MetaInfo::Effect::Category::system);
+			deactivateEffects_(MetaInfo::Effect::Category::system);
 	}
 }

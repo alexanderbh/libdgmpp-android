@@ -6,6 +6,9 @@
 //
 
 #pragma once
+
+//#define DGMPP_THREADSAFE 1
+
 #include <utility>
 #include <memory>
 #include <string>
@@ -21,14 +24,18 @@
 #include <functional>
 #include <cmath>
 
-#include "AttributeID.hpp"
-#include "CategoryID.hpp"
-#include "GroupID.hpp"
-#include "TypeID.hpp"
-#include "EffectID.hpp"
-#include "WarfareBuffID.hpp"
+#if DGMPP_THREADSAFE
+#include <mutex>
+#endif
+
+#include "SDE/AttributeID.hpp"
+#include "SDE/CategoryID.hpp"
+#include "SDE/GroupID.hpp"
+#include "SDE/TypeID.hpp"
+#include "SDE/EffectID.hpp"
+#include "SDE/WarfareBuffID.hpp"
+#include "SDE/SchematicID.hpp"
 #include "Rate.hpp"
-#include "SchematicID.hpp"
 
 #if !defined(_LIBCPP_OPTIONAL) && !defined(_GLIBCXX_OPTIONAL)
 namespace std {
@@ -37,6 +44,7 @@ namespace std {
 	constexpr auto nullopt = std::experimental::nullopt;
 }
 #endif
+
 
 namespace dgmpp {
 	using Float = double;
@@ -75,6 +83,14 @@ namespace dgmpp {
 		const Percent shieldPeakRecharge = 0.5; //sqrt(0.25)
 		const std::chrono::milliseconds capacitorSimulationMaxTime = std::chrono::hours(6);
 	}
+	
+	struct Version {
+		size_t build;
+		const char* version;
+	};
+	
+	extern const Version version;
+	
 	
 	enum class RaceID {
 		none = 0,

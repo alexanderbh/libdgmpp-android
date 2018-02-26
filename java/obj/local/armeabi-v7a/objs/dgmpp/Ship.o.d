@@ -52,10 +52,10 @@
   /opt/android-ndk/sources/cxx-stl/llvm-libc++/include/experimental/__config \
   /opt/android-ndk/sources/cxx-stl/llvm-libc++/include/cmath \
   /opt/android-ndk/sources/cxx-stl/llvm-libc++/include/math.h \
-  /ndk/java/jni/AttributeID.hpp /ndk/java/jni/CategoryID.hpp \
-  /ndk/java/jni/GroupID.hpp /ndk/java/jni/TypeID.hpp \
-  /ndk/java/jni/EffectID.hpp /ndk/java/jni/WarfareBuffID.hpp \
-  /ndk/java/jni/Rate.hpp /ndk/java/jni/SchematicID.hpp \
+  /ndk/java/jni/SDE/AttributeID.hpp /ndk/java/jni/SDE/CategoryID.hpp \
+  /ndk/java/jni/SDE/GroupID.hpp /ndk/java/jni/SDE/TypeID.hpp \
+  /ndk/java/jni/SDE/EffectID.hpp /ndk/java/jni/SDE/WarfareBuffID.hpp \
+  /ndk/java/jni/SDE/SchematicID.hpp /ndk/java/jni/Rate.hpp \
   /opt/android-ndk/sources/cxx-stl/llvm-libc++/include/array \
   /ndk/java/jni/Attribute.hpp \
   /opt/android-ndk/sources/cxx-stl/llvm-libc++/include/unordered_map \
@@ -72,6 +72,9 @@
   /ndk/java/jni/Area.hpp /ndk/java/jni/HeatSimulator.hpp \
   /ndk/java/jni/SDE.hpp /ndk/java/jni/Errors.hpp \
   /opt/android-ndk/sources/cxx-stl/llvm-libc++/include/numeric \
+  /ndk/java/jni/Character.hpp /ndk/java/jni/Skill.hpp \
+  /ndk/java/jni/Structure.hpp /ndk/java/jni/Implant.hpp \
+  /ndk/java/jni/Booster.hpp \
   /opt/android-ndk/sources/cxx-stl/llvm-libc++/include/iostream \
   /opt/android-ndk/sources/cxx-stl/llvm-libc++/include/ios \
   /opt/android-ndk/sources/cxx-stl/llvm-libc++/include/__locale \
@@ -202,21 +205,21 @@
 
 /opt/android-ndk/sources/cxx-stl/llvm-libc++/include/math.h:
 
-/ndk/java/jni/AttributeID.hpp:
+/ndk/java/jni/SDE/AttributeID.hpp:
 
-/ndk/java/jni/CategoryID.hpp:
+/ndk/java/jni/SDE/CategoryID.hpp:
 
-/ndk/java/jni/GroupID.hpp:
+/ndk/java/jni/SDE/GroupID.hpp:
 
-/ndk/java/jni/TypeID.hpp:
+/ndk/java/jni/SDE/TypeID.hpp:
 
-/ndk/java/jni/EffectID.hpp:
+/ndk/java/jni/SDE/EffectID.hpp:
 
-/ndk/java/jni/WarfareBuffID.hpp:
+/ndk/java/jni/SDE/WarfareBuffID.hpp:
+
+/ndk/java/jni/SDE/SchematicID.hpp:
 
 /ndk/java/jni/Rate.hpp:
-
-/ndk/java/jni/SchematicID.hpp:
 
 /opt/android-ndk/sources/cxx-stl/llvm-libc++/include/array:
 
@@ -261,6 +264,16 @@
 /ndk/java/jni/Errors.hpp:
 
 /opt/android-ndk/sources/cxx-stl/llvm-libc++/include/numeric:
+
+/ndk/java/jni/Character.hpp:
+
+/ndk/java/jni/Skill.hpp:
+
+/ndk/java/jni/Structure.hpp:
+
+/ndk/java/jni/Implant.hpp:
+
+/ndk/java/jni/Booster.hpp:
 
 /opt/android-ndk/sources/cxx-stl/llvm-libc++/include/iostream:
 

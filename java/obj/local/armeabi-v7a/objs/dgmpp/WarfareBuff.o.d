@@ -52,10 +52,10 @@
   /opt/android-ndk/sources/cxx-stl/llvm-libc++/include/experimental/__config \
   /opt/android-ndk/sources/cxx-stl/llvm-libc++/include/cmath \
   /opt/android-ndk/sources/cxx-stl/llvm-libc++/include/math.h \
-  /ndk/java/jni/AttributeID.hpp /ndk/java/jni/CategoryID.hpp \
-  /ndk/java/jni/GroupID.hpp /ndk/java/jni/TypeID.hpp \
-  /ndk/java/jni/EffectID.hpp /ndk/java/jni/WarfareBuffID.hpp \
-  /ndk/java/jni/Rate.hpp /ndk/java/jni/SchematicID.hpp \
+  /ndk/java/jni/SDE/AttributeID.hpp /ndk/java/jni/SDE/CategoryID.hpp \
+  /ndk/java/jni/SDE/GroupID.hpp /ndk/java/jni/SDE/TypeID.hpp \
+  /ndk/java/jni/SDE/EffectID.hpp /ndk/java/jni/SDE/WarfareBuffID.hpp \
+  /ndk/java/jni/SDE/SchematicID.hpp /ndk/java/jni/Rate.hpp \
   /opt/android-ndk/sources/cxx-stl/llvm-libc++/include/array \
   /ndk/java/jni/Modifier.hpp /ndk/java/jni/Type.hpp \
   /ndk/java/jni/Attribute.hpp \
@@ -172,21 +172,21 @@
 
 /opt/android-ndk/sources/cxx-stl/llvm-libc++/include/math.h:
 
-/ndk/java/jni/AttributeID.hpp:
+/ndk/java/jni/SDE/AttributeID.hpp:
 
-/ndk/java/jni/CategoryID.hpp:
+/ndk/java/jni/SDE/CategoryID.hpp:
 
-/ndk/java/jni/GroupID.hpp:
+/ndk/java/jni/SDE/GroupID.hpp:
 
-/ndk/java/jni/TypeID.hpp:
+/ndk/java/jni/SDE/TypeID.hpp:
 
-/ndk/java/jni/EffectID.hpp:
+/ndk/java/jni/SDE/EffectID.hpp:
 
-/ndk/java/jni/WarfareBuffID.hpp:
+/ndk/java/jni/SDE/WarfareBuffID.hpp:
+
+/ndk/java/jni/SDE/SchematicID.hpp:
 
 /ndk/java/jni/Rate.hpp:
-
-/ndk/java/jni/SchematicID.hpp:
 
 /opt/android-ndk/sources/cxx-stl/llvm-libc++/include/array:
 
