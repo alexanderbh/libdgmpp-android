@@ -11,7 +11,7 @@ LOCAL_CPP_FEATURES := exceptions rtti
 LOCAL_CPPFLAGS := -fpermissive
 LOCAL_LDLIBS += -latomic
 
-LOCAL_C_INCLUDES := SDE
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/SDE
 
 LOCAL_SRC_FILES := \
 dgmpp_wrap.cxx \
